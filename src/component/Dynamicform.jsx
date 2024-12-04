@@ -40,34 +40,6 @@ const DynamicForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
-    // For ZIP code, only allow numbers and hyphen
-    // if (name === 'zipCode') {
-    //   // Allow only numbers and hyphen
-    //   if (!/^[\d-]*$/.test(value)) {
-    //     return;
-    //   }
-    // }
-
-    // // For card number, only allow numbers
-    // if (name === 'cardNumber') {
-    //   if (!/^\d*$/.test(value)) {
-    //     return;
-    //   }
-    //   if (value.length > 16) {
-    //     return;
-    //   }
-    // }
-
-    // // For CVV, only allow numbers
-    // if (name === 'cvv') {
-    //   if (!/^\d*$/.test(value)) {
-    //     return;
-    //   }
-    //   if (value.length > 4) {
-    //     return;
-    //   }
-    // }
 
     setFormData(prev => ({ ...prev, [name]: value }));
     setErrors(prev => ({ ...prev, [name]: '' }));
@@ -86,34 +58,7 @@ const DynamicForm = () => {
         newErrors[field.name] = `${field.label} is required`;
       }
 
-    //   if (trimmedValue) {
-    //     switch (field.name) {
-    //       case 'zipCode':
-    //         const zipRegex = /^\d{5}(-\d{4})?$/;
-    //         if (!zipRegex.test(trimmedValue)) {
-    //           newErrors[field.name] = 'Please enter a valid ZIP code (e.g., 12345 or 12345-6789)';
-    //         }
-    //         break;
-    //       case 'cardNumber':
-    //         if (trimmedValue.length !== 16) {
-    //           newErrors[field.name] = 'Card number must be 16 digits';
-    //         }
-    //         break;
-    //       case 'cvv':
-    //         if (trimmedValue.length < 3 || trimmedValue.length > 4) {
-    //           newErrors[field.name] = 'CVV must be 3 or 4 digits';
-    //         }
-    //         break;
-    //       case 'state':
-    //         if (!field.options.includes(trimmedValue)) {
-    //           newErrors[field.name] = 'Please select a valid state';
-    //         }
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //   }
-    });
+    
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
